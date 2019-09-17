@@ -18,9 +18,14 @@ async function search(location){
     fetch(api)
         .then(response => response.json())
         .then(json => {
-            getAqi(json);
-            getCity(json);
-            getTime(json);
+            if(json.status == 'error'){
+                console.log('cannot find station');
+            }else{
+                getAqi(json);
+                getCity(json);
+                getTime(json);
+            }
+            
         })
 
 
@@ -29,12 +34,12 @@ async function search(location){
 
 async function getAqi(search_obj) {
     // console.log('getAqi: '+search_obj);
-    if (search_obj == null) {
-        console.log('object is empty');
+    if (search_obj.status == 'error') {
+        console.log('cannot find station');
         return 0;
     }else{
         var val = search_obj.data.aqi;
-        console.log('AQI: '+ search_obj.data.aqi);
+        console.log('Air Quality: '+ search_obj.data.aqi);
         return val;
     }
 
@@ -42,8 +47,8 @@ async function getAqi(search_obj) {
 
 async function getCity(search_obj){
 
-    if (search_obj == null) {
-        console.log('1 object is empty');
+    if (search_obj.status == 'error') {
+        console.log('cannot find station');
         return 0;
     }else{
         var val = search_obj.data.city.name;
@@ -55,8 +60,8 @@ async function getCity(search_obj){
 
 async function getTime(search_obj){
 
-    if(search_obj == null){
-        console.log('2object is empty');
+    if (search_obj.status == 'error') {
+        console.log('cannot find station');
         return 0;
     }else{
         var time = search_obj.data.time.s;

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict'
 require = require('esm')(module /*, options */);
 
 const program = require('commander');
@@ -17,6 +18,11 @@ program
     .description('find a city/town')
     .action(location => search(location));
 
+
+program.on('command:*', function () {
+    console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
+    process.exit(1);
+});
 
 program.parse(process.argv);
 
