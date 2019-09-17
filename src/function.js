@@ -17,8 +17,11 @@ async function search(location){
     
     fetch(api)
         .then(response => response.json())
-        .then(json => {getAqi(json)})
-        .then(json => getCity(json));
+        .then(json => {
+            getAqi(json);
+            getCity(json);
+            getTime(json);
+        })
 
 
 }
@@ -40,7 +43,7 @@ async function getAqi(search_obj) {
 async function getCity(search_obj){
 
     if (search_obj == null) {
-        console.log('object is empty');
+        console.log('1 object is empty');
         return 0;
     }else{
         var val = search_obj.data.city.name;
@@ -50,4 +53,17 @@ async function getCity(search_obj){
 
 }
 
+async function getTime(search_obj){
 
+    if(search_obj == null){
+        console.log('2object is empty');
+        return 0;
+    }else{
+        var time = search_obj.data.time.s;
+        var timezone = search_obj.data.time.tz;
+        console.log('timezone: '+ timezone);
+        console.log('last updated on '+ time);
+        return time;
+    }
+
+}
