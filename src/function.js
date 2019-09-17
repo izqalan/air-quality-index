@@ -17,7 +17,8 @@ async function search(location){
     
     fetch(api)
         .then(response => response.json())
-        .then(json => {getAqi(json)});
+        .then(json => {getAqi(json)})
+        .then(json => getCity(json));
 
 
 }
@@ -31,6 +32,19 @@ async function getAqi(search_obj) {
     }else{
         var val = search_obj.data.aqi;
         console.log('AQI: '+ search_obj.data.aqi);
+        return val;
+    }
+
+}
+
+async function getCity(search_obj){
+
+    if (search_obj == null) {
+        console.log('object is empty');
+        return 0;
+    }else{
+        var val = search_obj.data.city.name;
+        console.log('city: '+ val);
         return val;
     }
 
