@@ -1,0 +1,26 @@
+{
+  "name": "aqi",
+  "version": "1.0.0",
+  "description": "air quality index",
+  "main": "src/app.js",
+  "bin": {
+    "air-quality": "bin/commands.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aqi"
+  ],
+  "author": "izqalan",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^3.0.1",
+    "esm": "^3.2.25",
+    "node-fetch": "^2.6.0",
+    "request": "^2.88.0"
+  }
+}
