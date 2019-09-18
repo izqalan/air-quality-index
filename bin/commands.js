@@ -20,11 +20,6 @@ program
     .description('find a city/town')
     .action(location => search(location));
 
-// program
-//     .command('findme <location>')
-//     .alias('fm')
-//     .description('find local air quality index')
-//     .action(search('here'));
 
 program.on('command:*', function () {
     console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));

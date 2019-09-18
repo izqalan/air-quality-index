@@ -58,10 +58,10 @@ async function getAqi(search_obj) {
             console.log(chalk.dim('Air Quality: ')+ val + chalk.red(qualityTag[3]));
         }
         else if(aqival > 200 && aqival <= 300){
-            console.log(chalk.dim('Air Quality: ')+ val + chalk.purple(qualityTag[4]));
+            console.log(chalk.dim('Air Quality: ')+ val + chalk.magenta(qualityTag[4]));
         }
         else if(aqival > 300){
-            console.log(chalk.dim('Air Quality: ')+ val + chalk.magenta(qualityTag[5]));
+            console.log(chalk.dim('Air Quality: ')+ val + chalk.rgb(175,0,42)(qualityTag[5]));
         }
 
         // console.log('Air Quality: '+ search_obj.data.aqi);
