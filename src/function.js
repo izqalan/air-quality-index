@@ -27,7 +27,7 @@ async function search(location){
     
     var sapi = SEARCHAPI+TOKEN+'&keyword='+location;
 
-    spinner.start();
+    // spinner.start();
 
     fetch(sapi).then(response => response.json())
         .then( json => {
@@ -42,7 +42,6 @@ async function search(location){
                     .then(response => response.json())
                     .then(json => {
                         if(json.status == 'error'){
-                            // console.log(chalk.red('error! ') + 'cannot find station' );
                             spinner.fail(chalk.red('error! ') + 'cannot find station');
                         }else{
     

@@ -1,5 +1,5 @@
 {
-  "name": "aqi",
+  "name": "air-quality",
   "version": "1.0.0",
   "description": "air quality index",
   "main": "src/app.js",
@@ -11,9 +11,11 @@
   },
   "scripts": {
     "test": "FORCE_COLOR=true jest"
+    
   },
   "keywords": [
-    "aqi"
+    "aqi",
+    "air-quality"
   ],
   "author": "izqalan",
   "license": "ISC",
