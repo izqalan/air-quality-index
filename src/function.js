@@ -27,31 +27,37 @@ async function search(location){
     
     var sapi = SEARCHAPI+TOKEN+'&keyword='+location;
 
-    // console.log(sapi);
     spinner.start();
 
     fetch(sapi).then(response => response.json())
         .then( json => {
-            var uid = json.data[0].uid;
-            var api = URI+uid+'/?token='+TOKEN;
-
-            fetch(api)
-                .then(response => response.json())
-                .then(json => {
-                    if(json.status == 'error'){
-                        // console.log(chalk.red('error! ') + 'cannot find station' );
-                        spinner.fail(chalk.red('error! ') + 'cannot find station');
-                    }else{
-
-                        spinner.stop().clear();
-                        // console.log(json);
-                        getAqi(json);
-                        getCity(json);
-                        getTime(json);
-                
-                    }
             
-                })
+            if (json.status == 'error' || json.data[0] == undefined ) {
+                spinner.fail(chalk.red('error! ') + 'cannot find station');
+            }else{
+                var uid = json.data[0].uid;
+                var api = URI+uid+'/?token='+TOKEN;
+                
+                fetch(api)
+                    .then(response => response.json())
+                    .then(json => {
+                        if(json.status == 'error'){
+                            // console.log(chalk.red('error! ') + 'cannot find station' );
+                            spinner.fail(chalk.red('error! ') + 'cannot find station');
+                        }else{
+    
+                            spinner.stop().clear();
+                            // console.log(json);
+                            getAqi(json);
+                            getCity(json);
+                            getTime(json);
+                    
+                        }
+                
+                    })
+
+            }
+            
 
 
         });
