@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 require = require('esm')(module /*, options */);
-// require('../src/app').aqi(process.argv);
+
 
 const program = require('commander');
 
@@ -11,7 +11,7 @@ const {
     search
 } = require('../src/function')
 
-program.version('1.0.0')
+program.version('1.0.4')
     .description('Air Quality Index');
 
 program

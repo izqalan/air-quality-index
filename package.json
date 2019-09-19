@@ -1,6 +1,6 @@
 {
-  "name": "air-quality",
-  "version": "1.0.0",
+  "name": "my-air-quality",
+  "version": "1.0.2",
   "description": "air quality index",
   "main": "src/app.js",
   "bin": {
@@ -15,10 +15,16 @@
   },
   "keywords": [
     "aqi",
-    "air-quality"
+    "air-quality",
+    "haze"
+    
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/izqalan/air-quality-index"
+  },
   "author": "izqalan",
-  "license": "ISC",
+  "license": "BSD 2-Clause",
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^3.0.1",

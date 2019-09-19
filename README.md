@@ -4,9 +4,9 @@ Perform these steps to make initial setup of your work environment:
   
 ## Installation
 ```
-npm i my-air-quality -g
+$ npm install -g my-air-quality
 ```
 ## Commands
 ```
-air-quality find [location]
+$ air-quality find <city/town>
 ```

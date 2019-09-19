@@ -27,7 +27,7 @@ async function search(location){
     
     var sapi = SEARCHAPI+TOKEN+'&keyword='+location;
 
-    // spinner.start();
+    spinner.start();
 
     fetch(sapi).then(response => response.json())
         .then( json => {
