@@ -4,7 +4,8 @@ const chalk = require('chalk');
 const ora = require('ora');
 
 var TOKEN = '97f08b9a493b5fd785bbf88d5d78a0e1cea8f832';
-var URI = 'https://api.waqi.info/feed/'
+var URI = 'https://api.waqi.info/feed/@'
+var SEARCHAPI = 'https://api.waqi.info/search/?token='
 
 // module.exports.getAqi = getAqi;
 module.exports.search = search;
@@ -23,27 +24,37 @@ const spinner = ora({
     // need location
 async function search(location){
 
-    var api = URI+location+'/?token='+TOKEN;
+    
+    var sapi = SEARCHAPI+TOKEN+'&keyword='+location;
 
+    // console.log(sapi);
     spinner.start();
-    spinner.render();
-    fetch(api)
-        .then(response => response.json())
-        .then(json => {
-            if(json.status == 'error'){
-                // console.log(chalk.red('error! ') + 'cannot find station' );
-                spinner.fail(chalk.red('error! ') + 'cannot find station');
-            }else{
-                spinner.stop().clear();
-                getAqi(json);
-                getCity(json);
-                getTime(json);
+
+    fetch(sapi).then(response => response.json())
+        .then( json => {
+            var uid = json.data[0].uid;
+            var api = URI+uid+'/?token='+TOKEN;
+
+            fetch(api)
+                .then(response => response.json())
+                .then(json => {
+                    if(json.status == 'error'){
+                        // console.log(chalk.red('error! ') + 'cannot find station' );
+                        spinner.fail(chalk.red('error! ') + 'cannot find station');
+                    }else{
+
+                        spinner.stop().clear();
+                        // console.log(json);
+                        getAqi(json);
+                        getCity(json);
+                        getTime(json);
                 
-            }
+                    }
             
-        })
+                })
 
 
+        });
 }
 
 
