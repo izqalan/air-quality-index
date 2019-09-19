@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 require = require('esm')(module /*, options */);
-require('../src/app').aqi(process.argv);
+// require('../src/app').aqi(process.argv);
 
 const program = require('commander');
 
