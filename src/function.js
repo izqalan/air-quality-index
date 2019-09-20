@@ -2,8 +2,11 @@ var request = require('request');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
 const ora = require('ora');
+require('dotenv').config()
 
-var TOKEN = '97f08b9a493b5fd785bbf88d5d78a0e1cea8f832';
+// get your api key here https://aqicn.org/data-platform/token/#/
+
+var TOKEN = process.env.API_KEY;
 var URI = 'https://api.waqi.info/feed/@'
 var SEARCHAPI = 'https://api.waqi.info/search/?token='
 

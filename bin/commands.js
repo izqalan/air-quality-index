@@ -11,7 +11,7 @@ const {
     search
 } = require('../src/function')
 
-program.version('1.0.4')
+program.version('1.0.3')
     .description('Air Quality Index');
 
 program

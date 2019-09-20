@@ -1,6 +1,6 @@
 {
   "name": "my-air-quality",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "air quality index",
   "main": "src/app.js",
   "bin": {
@@ -11,13 +11,11 @@
   },
   "scripts": {
     "test": "FORCE_COLOR=true jest"
-    
   },
   "keywords": [
     "aqi",
     "air-quality",
     "haze"
-    
   ],
   "repository": {
     "type": "git",
@@ -28,6 +26,7 @@
   "dependencies": {
     "chalk": "^2.4.2",
     "commander": "^3.0.1",
+    "dotenv": "^8.1.0",
     "esm": "^3.2.25",
     "node-fetch": "^2.6.0",
     "ora": "^3.4.0",
